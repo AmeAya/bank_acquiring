@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-0$u&yn1r&em0w*@=e#n87&zx!o&k!ac^qio4op1iw@e(8n33*2
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['http://195.210.47.142', 'http://195.210.47.142:8000']
+CSRF_TRUSTED_ORIGINS = ['http://195.210.47.142', 'http://195.210.47.142:9000']
 
 
 # Application definition
@@ -82,7 +82,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '5918',
         'HOST': 'postgres',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 
