@@ -35,7 +35,8 @@ class PaymentApiView(APIView):
         data_str += f"{request.data.get('datetime').replace(' ', '_')}_qwerty"
         hashed_data = sha256(data_str.encode('utf-8')).hexdigest()
         if hashed_data != request.data.get('hash'):
-            return Response(data=f"Hash is not matching!", status=status.HTTP_400_BAD_REQUEST)
+            return Response(data={"hash": hashed_data, "data": data_str}
+                            , status=status.HTTP_400_BAD_REQUEST)
         data = PaymentSerializer(data=request.data)
         if data.is_valid():
             data.save()
