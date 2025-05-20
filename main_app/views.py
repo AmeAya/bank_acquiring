@@ -39,5 +39,5 @@ class PaymentApiView(APIView):
         payment = PaymentSerializer(data=request.data)
         if payment.is_valid():
             payment.save()
-            return Response(data={'id': payment.id}, status=status.HTTP_200_OK)
+            return Response(data={'id': payment.instance.id}, status=status.HTTP_200_OK)
         return Response(data=payment.errors, status=status.HTTP_400_BAD_REQUEST)
