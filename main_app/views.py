@@ -10,7 +10,7 @@ from random import randint
 
 
 class PaymentApiView(APIView):
-    authentication_classes = [AllowAny]
+    permission_classes = [AllowAny]
 
     def get(self, request):
         payment_id = request.GET.get('id')
