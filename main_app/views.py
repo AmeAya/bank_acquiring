@@ -31,7 +31,7 @@ class PaymentApiView(APIView):
         for field in required_fields:
             if field not in request.data:
                 return Response(data=f"Field '{field}' is required!", status=status.HTTP_400_BAD_REQUEST)
-        data_str = f"{request.data.get('order_id')}_{request.data.get('total')}"
+        data_str = f"{request.data.get('order_id')}_{request.data.get('total')}_"
         data_str += f"{request.data.get('datetime').replace(' ', '_')}_qwerty"
         hashed_data = sha256(data_str.encode('utf-8')).hexdigest()
         if hashed_data != request.data.get('hash'):
